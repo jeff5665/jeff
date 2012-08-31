@@ -9,3 +9,18 @@ title: 我的Blog
 <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
+<!--分类 -->
+<ul>
+	{% for category in site.categories %}
+	<li>
+		<a href="/categories.html#{{ category[0] }}">
+		{% if page.categories contains category[0] %}
+		<b>{{ category[0] }}</b>
+		{% else %}
+			{{ category[0] }}
+		{% endif %}
+		</a>
+		<sup>[{{ category[1].size }}]</sup>
+	</li>
+	{% endfor %}
+</ul>
